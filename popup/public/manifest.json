@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "LinkedIn",
+  "version": "0.1.0",
+  "description": "Автоматизація надсилання запитів на з'єднання в LinkedIn",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": ["https://www.linkedin.com/*"]
+}
