@@ -7,5 +7,10 @@
     "default_popup": "index.html"
   },
   "permissions": ["storage", "activeTab"],
-  "host_permissions": ["https://www.linkedin.com/*"]
+  "host_permissions": ["https://www.linkedin.com/*"],
+   "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
 }
