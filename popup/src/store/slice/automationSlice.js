@@ -46,6 +46,24 @@ const automationSlice = createSlice({
       state.progress.total = action.payload?.total ?? 0;
       state.progress.current = 0;
     },
+    runStopped(state) {
+      state.status = "stopped";
+    },
+    progressUpdated(state, action) {
+      state.progress = { ...state.progress, ...action.payload };
+    },
+    countersUpdated(state, action) {
+      state.counters = { ...state.counters, ...action.payload };
+    },
+    limitsUpdated(state, action) {
+      state.limits = { ...state.limits, ...action.payload };
+    },
+    logEventAdded(state, action) {
+      state.log.unshift(action.payload);
+      if (state.log.length > 50) {
+        state.log.pop();
+      }
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(startRunThunk.pending, (state) => {
@@ -78,6 +96,13 @@ const automationSlice = createSlice({
   },
 });
 
-export const { runStarted } = automationSlice.actions;
+export const {
+  runStarted,
+  runStopped,
+  progressUpdated,
+  countersUpdated,
+  limitsUpdated,
+  logEventAdded,
+} = automationSlice.actions;
 export { startRunThunk, stopRunThunk };
 export default automationSlice.reducer;
