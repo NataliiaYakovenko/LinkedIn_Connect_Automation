@@ -30,7 +30,6 @@ function App() {
       <ProgressBar />
       <Counters />
       <Limits />
-      <pre>{JSON.stringify(automation, null, 2)}</pre>
     </div>
   );
 }
