@@ -3,6 +3,7 @@ import StartButton from "./components/StartButton/StartButton";
 import { startRunThunk, stopRunThunk } from "./store/slices/automationSlice";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
 import Counters from "./components/Counters/Counters";
+import Limits from "./components/Limits/Limits";
 
 function App() {
   const automation = useSelector((state) => state.automation);
@@ -28,6 +29,7 @@ function App() {
       />
       <ProgressBar />
       <Counters />
+      <Limits />
       <pre>{JSON.stringify(automation, null, 2)}</pre>
     </div>
   );
