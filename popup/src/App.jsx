@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import StartButton from "./components/StartButton/StartButton";
 import { startRunThunk, stopRunThunk } from "./store/slices/automationSlice";
+import ProgressBar from "./components/ProgressBar/ProgressBar";
 
 function App() {
   const automation = useSelector((state) => state.automation);
@@ -24,6 +25,7 @@ function App() {
         onStart={handlerStart}
         onStop={handlerStop}
       />
+      <ProgressBar/>
       <pre>{JSON.stringify(automation, null, 2)}</pre>
     </div>
   );
