@@ -5,7 +5,7 @@ const ProgressBar = () => {
 
   return (
     <div>
-      Progress: {current} / {total}
+      Progress: current: {current} / tottal: {total}
     </div>
   );
 };
