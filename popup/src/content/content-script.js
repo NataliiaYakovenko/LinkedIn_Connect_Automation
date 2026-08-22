@@ -13,9 +13,26 @@ setTimeout(() => {
   console.log(`[LinkedIn] знайдено карток: ${cards.length}`);
 
   cards.forEach((card, index) => {
-    const button = findConnectButton(card);
-    console.log(
-      `[LinkedIn] картка ${index}: кнопка Connect ${button ? "знайдена" : "НЕ знайдена"}`,
-    );
+    const state = resolveButtonState(card);
+    console.log(`[LinkedIn] картка ${index}: стан = ${state}`);
   });
 }, 2000);
+
+function resolveButtonState(card) {
+  const connectButton = card.querySelector('[aria-label*="to connect"]');
+  if (connectButton) {
+    return "connect";
+  }
+
+  const pendingButton = card.querySelector('[aria-label*="Pending"]');
+  if (pendingButton) {
+    return "pending";
+  }
+
+  const messageButton = card.querySelector('[aria-label*="Message"]');
+  if (messageButton) {
+    return "message";
+  }
+
+  return "unknown";
+}
